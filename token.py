@@ -10,13 +10,13 @@ TOKEN_TIMEOUT_SECONDS = 3600
 user_tokens = {}
 
 # Initialize the Bitly URL shortener with your API access token
-BITLY_API_TOKEN = "YOUR_BITLY_API_TOKEN"
-s = pyshorteners.Shortener(api_key=BITLY_API_TOKEN)
+GREY_API_TOKEN = "3f52cf5744a74654e91274e16f6bb338fb3e9174"
+s = pyshorteners.Shortener(api_key=GREY_API_TOKEN)
 
 # Function to generate a new token (shortened URL) for a user
 def generate_token(user_id):
-    original_url = f"generate_your_long_unique_token_url_here_for_user_{user_id}"
-    token = s.bitly.short(original_url)
+    original_url = f"https://greymatterslinks.in/api?api={GREY_API_TOKEN}&url=6655395078:AAEx-YZ7NofmuTzWxqpg3YphlxVazgZDgzY"
+    token = s.greymatterslinks.short(original_url)
     user_tokens[user_id] = {
         "token": token,
         "created_at": time.time()
@@ -46,7 +46,7 @@ def start(update: Update, context: CallbackContext):
 
 def main():
     # Replace 'YOUR_BOT_TOKEN' with your actual bot token
-    updater = Updater(token="YOUR_BOT_TOKEN", use_context=True)
+    updater = Updater(token="6655395078:AAEx-YZ7NofmuTzWxqpg3YphlxVazgZDgzY", use_context=True)
     dispatcher = updater.dispatcher
 
     # Define a command handler for the /start command
