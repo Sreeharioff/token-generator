@@ -2,6 +2,17 @@ import time
 import pyshorteners
 from telegram import Update
 from telegram.ext import Updater, CommandHandler, CallbackContext
+import logging
+from typing import Optional
+
+def get_logger(file_name: str, class_name: Optional[str] = None) -> logging.Logger:
+    logger = logging.getLogger(class_name)
+    formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+    file_handler = logging.FileHandler(file_name)
+    file_handler.setFormatter(formatter)
+    logger.addHandler(file_handler)
+    logger.setLevel(logging.DEBUG)
+    return logger
 
 # Define your token timeout duration in seconds (e.g., 1 hour)
 TOKEN_TIMEOUT_SECONDS = 3600
